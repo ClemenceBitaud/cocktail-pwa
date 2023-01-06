@@ -13,9 +13,9 @@ const useStyles = createStyles((theme) => ({
 
     link: {
         boxSizing: 'border-box',
-        display: 'block',
+        boxShadow: '0px 6px 5px rgba(255, 179, 188, 0.1)',
         textDecoration: 'none',
-        borderRadius: theme.radius.xl,
+        borderRadius: 10,
         color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9],
         backgroundColor: "pink",
         padding: `0 ${theme.spacing.md}px`,
@@ -33,7 +33,7 @@ const RetroButton = ({label, linkTo}) => {
     const { classes} = useStyles();
 
     return(
-        <div>
+        <Flex>
             <a
                 className={classes.link}
                 href="/"
@@ -45,7 +45,7 @@ const RetroButton = ({label, linkTo}) => {
             >
                 {label}
             </a>
-        </div>
+        </Flex>
     )
 }
 export default RetroButton;
