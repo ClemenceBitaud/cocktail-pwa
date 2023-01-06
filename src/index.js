@@ -9,7 +9,17 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <MantineProvider withGlobalStyles withNormalizeCSS>
+      <MantineProvider
+          theme={{
+              // fontFamily: 'Limelight, cursive',
+              // fontFamilyMonospace: 'Monaco, Courier, monospace',
+              // headings: { fontFamily: 'Greycliff CF, sans-serif' },
+              colors: {
+                  'orange': ['#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E'],
+                  'pink': ['#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC'],
+              },
+          }}
+      >
           <App />
       </MantineProvider>
   </React.StrictMode>

@@ -1,9 +1,14 @@
 import Navbar from "../components/Navbar";
+import RetroButton from "../components/RetroButton";
 
 const Home = () => {
 
     return(
-        <Navbar/>
+        <div>
+            <Navbar/>
+            <RetroButton label={"Find a cocktail"} linkTo={"/cocktail"}/>
+        </div>
+
     )
 }
 export default Home;
