@@ -1,7 +1,5 @@
-import {useNavigate} from 'react-router-dom';
-import {createStyles, Flex, Text, Modal, Title} from '@mantine/core';
+import {createStyles, Title} from '@mantine/core';
 import image from '../assets/alcohol.jpg';
-import {useState} from "react";
 
 const useStyles = createStyles((theme) => ({
 
@@ -15,14 +13,11 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const CocktailDetail = ({cocktail}) => {
-
-    const navigate = useNavigate();
     const { classes} = useStyles();
-    const [opened, setOpened] = useState(false);
 
     return(
         <div className={classes.card}>
-            <img className={classes.image} src={image}/>
+            <img className={classes.image} src={image} alt="detail cocktail"/>
             <Title size={"h3"}>Nom</Title>
         </div>
 

@@ -1,5 +1,5 @@
 import {useNavigate} from 'react-router-dom';
-import {createStyles, Flex, Title, UnstyledButton, Text} from '@mantine/core';
+import {createStyles, Title, UnstyledButton, Text} from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
 

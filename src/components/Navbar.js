@@ -1,16 +1,9 @@
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import {createStyles, Flex, TextInput} from '@mantine/core';
-import image from '../assets/cocktail.svg';
-import SearchIcon from '@mui/icons-material/Search';
+import {createStyles, Flex} from '@mantine/core';
 import './TextInput.css'
 
 const useStyles = createStyles((theme) => ({
-
-    logo: {
-        height:40,
-        width: 40
-    },
 
     link: {
         boxSizing: 'border-box',
@@ -37,11 +30,6 @@ const useStyles = createStyles((theme) => ({
                 .background,
             color: theme.colors.dark[9],
         },
-    },
-
-    searchInput : {
-        backgroundColor: "#FFE6E9",
-        borderColor: "#FFE6E9"
     },
 }));
 

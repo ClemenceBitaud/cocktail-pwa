@@ -4,7 +4,6 @@ import {createStyles, Flex} from "@mantine/core";
 import TitleSeeMore from "../components/TitleSeeMore";
 import CocktailCard from "../components/CocktailCard";
 import Header from "../components/Header";
-import WelcomeButton from "../components/button/WelcomeButton";
 
 const useStyles = createStyles((theme) => ({
 

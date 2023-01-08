@@ -1,8 +1,8 @@
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 import {createStyles, Flex, Text, Modal} from '@mantine/core';
 import image from '../assets/alcohol.jpg';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import {useState} from "react";
 import CocktailDetail from "./CocktailDetail";
@@ -54,7 +54,7 @@ const useStyles = createStyles((theme) => ({
 
 const CocktailCard = ({cocktail}) => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { classes} = useStyles();
     const [opened, setOpened] = useState(false);
 
@@ -62,7 +62,7 @@ const CocktailCard = ({cocktail}) => {
         <Flex justify="center" className={classes.card}>
             <div className={classes.borderOrange}/>
             <Flex direction="column" align="center">
-                <img src={image} className={classes.cocktailImage}/>
+                <img src={image} className={classes.cocktailImage} alt="cocktail"/>
                 <Text>Nom</Text>
                 <Flex>
                     <Flex justify="center" align="center" className={classes.eyeIcon} onClick={() =>setOpened(true)}>
