@@ -11,9 +11,9 @@ root.render(
   <React.StrictMode>
       <MantineProvider
           theme={{
-              // fontFamily: 'Limelight, cursive',
-              // fontFamilyMonospace: 'Monaco, Courier, monospace',
-              // headings: { fontFamily: 'Greycliff CF, sans-serif' },
+              fontFamily: 'Tajawal, sans-serif',
+              fontFamilyMonospace: 'Tajawal, sans-serif',
+              headings: { fontFamily: 'Limelight, cursive' },
               colors: {
                   'orange': ['#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E'],
                   'pink': ['#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC'],

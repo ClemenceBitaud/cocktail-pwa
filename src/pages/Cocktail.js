@@ -1,9 +1,9 @@
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 const Cocktail = () => {
 
     return(
-        <Navbar/>
+        <Header/>
     )
 }
 export default Cocktail;

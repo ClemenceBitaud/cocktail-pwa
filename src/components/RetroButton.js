@@ -1,8 +1,5 @@
-import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import {createStyles, Flex, TextInput} from '@mantine/core';
-import image from '../assets/cocktail.svg';
-import SearchIcon from '@mui/icons-material/Search';
+import {createStyles, Flex} from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
 
@@ -18,6 +15,7 @@ const useStyles = createStyles((theme) => ({
         borderRadius: 10,
         color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9],
         backgroundColor: "pink",
+        marginTop: theme.spacing.xl,
         padding: `0 ${theme.spacing.md}px`,
         fontSize: theme.fontSizes.sm,
         fontWeight: 500,

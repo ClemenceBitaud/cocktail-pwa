@@ -4,6 +4,7 @@ import {createStyles, Flex, TextInput} from '@mantine/core';
 import image from '../assets/cocktail.svg';
 import SearchIcon from '@mui/icons-material/Search';
 import './TextInput.css'
+import Navbar from "./Navbar";
 
 const useStyles = createStyles((theme) => ({
 
@@ -64,7 +65,7 @@ const linksMockdata = [
     }
 ];
 
-const Navbar = () => {
+const Header = () => {
 
     const navigate = useNavigate();
     const { classes, cx } = useStyles();
@@ -86,9 +87,11 @@ const Navbar = () => {
     ));
 
     return(
-        <Flex>
-            {links}
+        <Flex justify="space-between" align="center">
+            <img src={image} className={classes.logo}/>
+            <Navbar/>
+            <TextInput placeholder="Search a cocktail" radius={20} aria-label="Search a cocktail" variant="filled" rightSection={<SearchIcon sx={{ color: '#FFB3BC' }}/>}/>
         </Flex>
     )
 }
-export default Navbar;
+export default Header;
