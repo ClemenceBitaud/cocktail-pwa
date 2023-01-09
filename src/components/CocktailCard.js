@@ -1,6 +1,4 @@
-// import {useNavigate} from 'react-router-dom';
 import {createStyles, Flex, Text, Modal} from '@mantine/core';
-import image from '../assets/alcohol.jpg';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 import {useState} from "react";
@@ -15,6 +13,7 @@ const useStyles = createStyles((theme) => ({
         borderRadius: 15,
         padding: theme.spacing.xs,
         cursor: "pointer",
+        margin: theme.spacing.sm,
 
         // SMARTPHONE
         [`@media (max-width: 600px)`]: {
@@ -53,16 +52,14 @@ const useStyles = createStyles((theme) => ({
 
 const CocktailCard = ({cocktail}) => {
 
-    // const navigate = useNavigate();
     const { classes} = useStyles();
     const [opened, setOpened] = useState(false);
 
     return(
         <Flex justify="center" className={classes.card} onClick={() =>setOpened(true)}>
-            {/*<div className={classes.borderOrange}/>*/}
             <Flex direction="column" align="center">
-                <img src={image} className={classes.cocktailImage} alt="cocktail"/>
-                <Text size={"sm"}>Nom</Text>
+                <img src={cocktail.strDrinkThumb} className={classes.cocktailImage} alt="cocktail"/>
+                <Text align="center" size={"sm"}>{cocktail.strDrink}</Text>
                 <Flex>
                     <Flex justify="center" align="center" className={classes.heartIcon} onClick={() =>{}}>
                         <FavoriteBorderIcon sx={{ color: '#FFB3BC' }}/>
@@ -74,7 +71,7 @@ const CocktailCard = ({cocktail}) => {
                 padding={0}
                 opened={opened}
                 onClose={() => setOpened(false)}>
-                <CocktailDetail/>
+                <CocktailDetail idCocktail={cocktail.idDrink}/>
             </Modal>
         </Flex>
 

@@ -26,9 +26,9 @@ import {Flex} from "@mantine/core";
 const CocktailsList = () => {
 
     // const { classes} = useStyles();
-    const [error] = useState(null);
-    // const [isLoaded, setIsLoaded] = useState(false);
-    const [cocktails] = useState([]);
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [cocktails, setCocktails] = useState([]);
 
     useEffect(() => {
         fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
@@ -36,41 +36,21 @@ const CocktailsList = () => {
                 return res.json();
             })
             .then((data) => {
-                console.log(data)
-                // count = data.count;
-                // setListPokemon(data.results);
-                // setLoader(false);
+                setIsLoaded(true);
+                setCocktails(data.drinks.slice(0,15));
             }, (error) => {
-                console.log(error);
+                setIsLoaded(true);
+                setError(error);
             });
     }, []);
-
-    // useEffect(() => {
-    //     fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0", {
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Access-Control-Allow-Origin':'*',
-    //         },
-    //     })
-    //         .then((result) => {
-    //                 setIsLoaded(true);
-    //                 console.log(result.body)
-    //                 // setCocktails(result);
-    //             },
-    //             (error) => {
-    //             console.log(error);
-    //                 setIsLoaded(true);
-    //                 setError(error);
-    //             })
-    // }, [])
 
     if (error){
         return <div>{error.message}</div>
     }else{
         return(
-            <Flex>
+            <Flex wrap="wrap" justify="center">
                 {cocktails.map(cocktail => (
-                    <CocktailCard cocktail={cocktail}/>
+                    <CocktailCard cocktail={cocktail} isLoaded={isLoaded} key={cocktail.strDrink}/>
                 ))}
             </Flex>
 

@@ -40,7 +40,7 @@ const Home = () => {
                 <HomeSection/>
                 <RandomSection/>
             </Flex>
-            <TitleSeeMore/>
+            <TitleSeeMore title={"Cocktails"}/>
             <CocktailsList/>
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>

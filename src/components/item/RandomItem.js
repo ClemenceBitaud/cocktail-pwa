@@ -1,4 +1,4 @@
-import {createStyles, Flex, Title, Text} from '@mantine/core';
+import {createStyles, Flex, Text} from '@mantine/core';
 import RetroButton from "../RetroButton";
 
 const useStyles = createStyles((theme) => ({
@@ -12,10 +12,6 @@ const useStyles = createStyles((theme) => ({
         paddingBottom: theme.spacing.lg,
         paddingLeft: theme.spacing.md
     },
-
-    title : {
-        marginBottom: theme.spacing.md
-    }
 }));
 
 const RandomItem = () => {
@@ -23,11 +19,10 @@ const RandomItem = () => {
     const { classes} = useStyles();
 
     return(
-        <Flex direction="column" align="center" className={classes.section}>
-            <Title size="h2" className={classes.title}>Title</Title>
-            <Text fz="md">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vulputate suscipit purus at dignissim. In blandit imperdiet vulputate. Suspendisse potenti. Cras ullamcorper at risus vel mattis. Ut semper at lacus et molestie.
+        <Flex direction="column" align="center" justify="center" className={classes.section}>
+            <Text align="center" fz="lg">Want to spice things up? Let us choose for you!
             </Text>
-            <RetroButton label={"Let's go !"} linkTo={"/cocktail"}/>
+            <RetroButton label={"Start the random search !"} linkTo={"/cocktail"}/>
         </Flex>
     )
 }

@@ -13,13 +13,13 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-const TitleSeeMore = () => {
+const TitleSeeMore = ({title}) => {
 
     const { classes} = useStyles();
 
     return(
         <Flex direction="row" align="center" justify="space-between" className={classes.section}>
-            <Title size="h3">Popular</Title>
+            <Title size="h3">{title}</Title>
             <a href="/popular" className={classes.link}>See more</a>
         </Flex>
     )
