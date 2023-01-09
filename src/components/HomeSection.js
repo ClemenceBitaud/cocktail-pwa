@@ -3,7 +3,7 @@ import WelcomeButton from "./button/WelcomeButton";
 import WelcomeItem from "./item/WelcomeItem";
 
 const ChooseHomeSection = ({width}) => {
-    if (width <= 400){
+    if (width <= 600){
         return <WelcomeButton/>
     }
     return <WelcomeItem/>
