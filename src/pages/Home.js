@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import useWindowDimensions from "../utils/windowDimensionHook";
 import BottomNavBar from "../components/BottomNavBar";
 import CocktailsList from "../components/CocktailsList";
+import {useEffect, useState} from "react";
 
 const useStyles = createStyles((theme) => ({
 
@@ -32,6 +33,26 @@ const Home = () => {
     const { classes} = useStyles();
     const {width} = useWindowDimensions();
     const activeLink = "Home";
+    const [error, setError] = useState(null);
+    // const [setIsLoaded] = useState(false);
+    const [cocktails, setCocktails] = useState([]);
+
+    useEffect(() => {
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                // setIsLoaded(true);
+                const drinks = data.drinks;
+                setCocktails(drinks.slice(0,15));
+                localStorage.setItem("alcoholic-cocktails", JSON.stringify(drinks));
+
+            }, (error) => {
+                // setIsLoaded(true);
+                setError(error);
+            });
+    }, []);
 
     return(
         <div className={classes.main}>
@@ -40,8 +61,8 @@ const Home = () => {
                 <HomeSection/>
                 <RandomSection/>
             </Flex>
-            <TitleSeeMore title={"Cocktails"}/>
-            <CocktailsList/>
+            <TitleSeeMore title={"Cocktails"} linkTo={"/cocktail"}/>
+            <CocktailsList cocktails={cocktails} error={error}/>
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
 

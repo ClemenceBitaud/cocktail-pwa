@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import BottomNavBar from "../components/BottomNavBar";
 import {createStyles} from "@mantine/core";
 import useWindowDimensions from "../utils/windowDimensionHook";
+import {useParams} from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
 
@@ -28,6 +29,8 @@ const Cocktail = () => {
     const { classes} = useStyles();
     const {width} = useWindowDimensions();
     const activeLink = "Cocktail";
+    const {search} = useParams();
+    console.log(search);
 
     return(
         <div className={classes.main}>

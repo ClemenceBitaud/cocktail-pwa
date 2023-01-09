@@ -23,26 +23,9 @@ import {Flex} from "@mantine/core";
 //     },
 // }));
 
-const CocktailsList = () => {
+const CocktailsList = ({cocktails, error}) => {
 
     // const { classes} = useStyles();
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [cocktails, setCocktails] = useState([]);
-
-    useEffect(() => {
-        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                setIsLoaded(true);
-                setCocktails(data.drinks.slice(0,15));
-            }, (error) => {
-                setIsLoaded(true);
-                setError(error);
-            });
-    }, []);
 
     if (error){
         return <div>{error.message}</div>
@@ -50,7 +33,7 @@ const CocktailsList = () => {
         return(
             <Flex wrap="wrap" justify="center">
                 {cocktails.map(cocktail => (
-                    <CocktailCard cocktail={cocktail} isLoaded={isLoaded} key={cocktail.strDrink}/>
+                    <CocktailCard cocktail={cocktail} key={cocktail.strDrink}/>
                 ))}
             </Flex>
 

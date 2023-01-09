@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     element: <Cocktail/>
   },
   {
+    path: "/cocktail/:search",
+    element: <Cocktail/>
+  },
+  {
     path: "/favorite",
     element: <Favorite/>
   }
