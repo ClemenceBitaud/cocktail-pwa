@@ -31,12 +31,7 @@ const CocktailsList = () => {
     const [cocktails] = useState([]);
 
     useEffect(() => {
-        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic", {
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin':'*',
-            },
-        })
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic")
             .then((res) => {
                 return res.json();
             })
