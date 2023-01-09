@@ -30,3 +30,11 @@
     width: 24px;
     height: 24px;
 }
+.MuiSvgIcon-fontSizeMedium{
+    font-size: 1.5em;
+}
+@media (max-width: 600px) {
+    .MuiSvgIcon-fontSizeMedium{
+        font-size: 1em;
+    }
+}

@@ -4,7 +4,6 @@ import {createStyles, Flex, UnstyledButton, Text} from '@mantine/core';
 import './TextInput.css'
 import HomeIcon from '@mui/icons-material/Home';
 import LocalBarIcon from '@mui/icons-material/LocalBar';
-import StarRateIcon from '@mui/icons-material/StarRate';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const useStyles = createStyles((theme) => ({
@@ -12,7 +11,8 @@ const useStyles = createStyles((theme) => ({
     main : {
         backgroundColor: "#FFE9D7",
         borderRadius: theme.radius.xl,
-        padding: '5px'
+        padding: '5px',
+        marginTop: theme.spacing.xs
     },
 
     link: {
@@ -49,11 +49,6 @@ const linksMockdata = [
         linkTo: '/'
     },
     {
-        label:'Popular',
-        icon: StarRateIcon,
-        linkTo: '/popular'
-    },
-    {
         label:'Cocktail',
         icon: LocalBarIcon,
         linkTo: '/cocktail'
@@ -79,6 +74,7 @@ const BottomNavBar = ({activeLink}) => {
                 navigate(link.linkTo)
                 // setActiveLink(link.label);
             }}
+            key={link.label}
         >
             <Flex align="center">
                 <link.icon fontSize="small"/>

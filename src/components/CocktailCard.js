@@ -14,7 +14,12 @@ const useStyles = createStyles((theme) => ({
         border: '2px solid #FFC76E',
         borderRadius: 15,
         padding: theme.spacing.xs,
-        cursor: "pointer"
+        cursor: "pointer",
+
+        // SMARTPHONE
+        [`@media (max-width: 600px)`]: {
+            width: 70,
+        },
     },
 
     cocktailImage : {
@@ -57,7 +62,7 @@ const CocktailCard = ({cocktail}) => {
             {/*<div className={classes.borderOrange}/>*/}
             <Flex direction="column" align="center">
                 <img src={image} className={classes.cocktailImage} alt="cocktail"/>
-                <Text>Nom</Text>
+                <Text size={"sm"}>Nom</Text>
                 <Flex>
                     <Flex justify="center" align="center" className={classes.heartIcon} onClick={() =>{}}>
                         <FavoriteBorderIcon sx={{ color: '#FFB3BC' }}/>

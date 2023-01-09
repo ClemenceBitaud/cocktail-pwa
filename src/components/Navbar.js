@@ -39,10 +39,6 @@ const linksMockdata = [
         linkTo: '/'
     },
     {
-        label:'Popular',
-        linkTo: '/popular'
-    },
-    {
         label:'Cocktail',
         linkTo: '/cocktail'
     },

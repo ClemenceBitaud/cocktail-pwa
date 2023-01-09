@@ -2,10 +2,10 @@ import HomeSection from "../components/HomeSection";
 import RandomSection from "../components/RandomSection";
 import {createStyles, Flex} from "@mantine/core";
 import TitleSeeMore from "../components/TitleSeeMore";
-import CocktailCard from "../components/CocktailCard";
 import Header from "../components/Header";
 import useWindowDimensions from "../utils/windowDimensionHook";
 import BottomNavBar from "../components/BottomNavBar";
+import CocktailsList from "../components/CocktailsList";
 
 const useStyles = createStyles((theme) => ({
 
@@ -41,7 +41,7 @@ const Home = () => {
                 <RandomSection/>
             </Flex>
             <TitleSeeMore/>
-            <CocktailCard/>
+            <CocktailsList/>
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
 
