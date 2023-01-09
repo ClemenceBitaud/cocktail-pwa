@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
         marginLeft: `${2}em`,
         marginTop: `${0.5}em`,
 
-        // Media query with value from theme
+        // SMARTPHONE
         [`@media (max-width: 600px)`]: {
             marginRight: `${1}em`,
             marginLeft: `${1}em`,
