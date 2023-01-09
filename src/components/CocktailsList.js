@@ -45,6 +45,8 @@ const CocktailsList = () => {
                 // count = data.count;
                 // setListPokemon(data.results);
                 // setLoader(false);
+            }, (error) => {
+                console.log(error);
             });
     }, []);
 
