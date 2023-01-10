@@ -1,10 +1,10 @@
-import Header from "../components/Header";
-import BottomNavBar from "../components/BottomNavBar";
+import Header from "../components/item/Header";
+import BottomNavBar from "../components/navigation/BottomNavBar";
 import {createStyles} from "@mantine/core";
 import useWindowDimensions from "../utils/windowDimensionHook";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import CocktailsList from "../components/CocktailsList";
+import CocktailsList from "../components/list/CocktailsList";
 
 const useStyles = createStyles((theme) => ({
 
@@ -32,7 +32,6 @@ const Cocktail = () => {
     const {width} = useWindowDimensions();
     const activeLink = "Cocktail";
     const {search} = useParams();
-    console.log(search);
     const [error, setError] = useState(null);
     // const [setIsLoaded] = useState(false);
     const [cocktails, setCocktails] = useState([]);

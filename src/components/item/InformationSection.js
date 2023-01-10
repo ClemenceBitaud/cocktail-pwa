@@ -1,6 +1,6 @@
-import useWindowDimensions from "../utils/windowDimensionHook";
-import InformationItem from "./item/InformationItem";
-import InformationButton from "./button/InformationButton";
+import useWindowDimensions from "../../utils/windowDimensionHook";
+import InformationItem from "./InformationItem";
+import InformationButton from "../button/InformationButton";
 
 const ChooseInformationSection = ({width, title, text, buttonText, linkTo, color, isBorder, flex, desktopAlign}) => {
     if (width <= 600){

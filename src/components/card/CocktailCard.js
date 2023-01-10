@@ -1,8 +1,8 @@
 import {createStyles, Flex, Text, Modal} from '@mantine/core';
 import {useState} from "react";
-import CocktailDetail from "./CocktailDetail";
+import CocktailDetailCard from "./CocktailDetailCard";
 import './Modal.css';
-import FavoriteButton from "./button/FavoriteButton";
+import FavoriteButton from "../button/FavoriteButton";
 
 const useStyles = createStyles((theme) => ({
 
@@ -38,12 +38,26 @@ const CocktailCard = ({cocktail}) => {
 
     const { classes} = useStyles();
     const [opened, setOpened] = useState(false);
+    const [cCocktail, setcCocktail] = useState({});
+
+    const handleCocktailDetail = (idCocktail) => {
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idCocktail}`)
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                setcCocktail(data.drinks[0]);
+            }, (error) => {
+                console.log(error)
+            });
+    }
 
     return(
         <Flex
             justify="center"
             className={classes.card}
             onClick={() =>{
+                handleCocktailDetail(cocktail.idDrink)
                 setOpened(true)
             }}>
             <Flex direction="column" align="center">
@@ -58,7 +72,7 @@ const CocktailCard = ({cocktail}) => {
                 padding={0}
                 opened={opened}
                 onClose={() => setOpened(false)}>
-                <CocktailDetail idCocktail={cocktail.idDrink}/>
+                <CocktailDetailCard cocktail={cCocktail}/>
             </Modal>
         </Flex>
 

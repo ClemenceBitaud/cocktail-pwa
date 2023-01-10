@@ -1,7 +1,7 @@
-import CocktailCard from "../components/CocktailCard";
+import CocktailCard from "../card/CocktailCard";
 import {Flex} from "@mantine/core";
-import InformationSection from "./InformationSection";
-import ErrorMessage from "./write/ErrorMessage";
+import InformationSection from "../item/InformationSection";
+import ErrorMessage from "../write/ErrorMessage";
 
 const CocktailsList = ({cocktails, error}) => {
 

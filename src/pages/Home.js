@@ -1,11 +1,11 @@
 import {createStyles, Flex} from "@mantine/core";
-import TitleSeeMore from "../components/TitleSeeMore";
-import Header from "../components/Header";
+import TitleSeeMore from "../components/write/TitleSeeMore";
+import Header from "../components/item/Header";
 import useWindowDimensions from "../utils/windowDimensionHook";
-import BottomNavBar from "../components/BottomNavBar";
-import CocktailsList from "../components/CocktailsList";
+import BottomNavBar from "../components/navigation/BottomNavBar";
+import CocktailsList from "../components/list/CocktailsList";
 import {useEffect, useState} from "react";
-import InformationSection from "../components/InformationSection";
+import InformationSection from "../components/item/InformationSection";
 
 const useStyles = createStyles((theme) => ({
 

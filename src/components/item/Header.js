@@ -1,8 +1,8 @@
 import {createStyles, Flex} from '@mantine/core';
-import image from '../assets/cocktail.svg';
-import Navbar from "./Navbar";
-import useWindowDimensions from "../utils/windowDimensionHook";
-import CustomTextInput from "./item/CustomTextInput";
+import image from '../../assets/cocktail.svg';
+import Navbar from "../navigation/Navbar";
+import useWindowDimensions from "../../utils/windowDimensionHook";
+import CustomTextInput from "./CustomTextInput";
 
 const useStyles = createStyles((theme) => ({
 

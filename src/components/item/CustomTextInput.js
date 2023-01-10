@@ -1,4 +1,4 @@
-import '../TextInput.css';
+import './TextInput.css';
 import {TextInput} from "@mantine/core";
 import SearchIcon from "@mui/icons-material/Search";
 import {useState} from "react";

@@ -1,27 +1,27 @@
 // import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import {createStyles, Flex, UnstyledButton, Text} from '@mantine/core';
-import './TextInput.css'
-import HomeIcon from '@mui/icons-material/Home';
-import LocalBarIcon from '@mui/icons-material/LocalBar';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import {createStyles, Flex} from '@mantine/core';
+import '../item/TextInput.css'
 
 const useStyles = createStyles((theme) => ({
 
-    main : {
-        backgroundColor: "#FFE9D7",
-        borderRadius: theme.radius.xl,
-        padding: '5px',
-        marginTop: theme.spacing.xs
-    },
-
     link: {
+        boxSizing: 'border-box',
+        display: 'block',
+        textDecoration: 'none',
         borderRadius: theme.radius.xl,
         color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.dark[9],
-        padding: `0 ${theme.spacing.xs}px`,
-        backgroundColor: "transparent",
+        padding: `0 ${theme.spacing.md}px`,
+        fontSize: theme.fontSizes.sm,
+        fontWeight: 500,
         height: 30,
         lineHeight: '30px',
+        fontFamily: 'Limelight, cursive',
+
+        '&:hover': {
+            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
+            color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+        },
     },
 
     linkActive: {
@@ -31,63 +31,47 @@ const useStyles = createStyles((theme) => ({
             color: theme.colors.dark[9],
         },
     },
-
-    text: {
-        display: "none"
-    },
-
-    textActive: {
-        display: "block"
-    },
-
 }));
 
 const linksMockdata = [
     {
         label:'Home',
-        icon: HomeIcon,
         linkTo: '/'
     },
     {
         label:'Cocktail',
-        icon: LocalBarIcon,
         linkTo: '/cocktail'
     },
     {
         label:'Favorite',
-        icon: FavoriteIcon,
         linkTo: '/favorite'
     }
 ];
 
-const BottomNavBar = ({activeLink}) => {
+const Navbar = ({activeLink}) => {
 
     const navigate = useNavigate();
     const { classes, cx } = useStyles();
     // const [activeLink, setActiveLink] = useState('Home');
 
     const links = linksMockdata.map((link) => (
-        <UnstyledButton
+        <a
             className={cx(classes.link, { [classes.linkActive]: activeLink === link.label })}
+            href="/"
             onClick={(event) => {
                 event.preventDefault();
                 navigate(link.linkTo)
-                // setActiveLink(link.label);
             }}
             key={link.label}
         >
-            <Flex align="center">
-                <link.icon fontSize="small"/>
-                <Text className={cx(classes.text, { [classes.textActive]: activeLink === link.label })} size="xs">{link.label}</Text>
-            </Flex>
-
-        </UnstyledButton>
+            {link.label}
+        </a>
     ));
 
     return(
-        <Flex justify="space-between" className={classes.main}>
+        <Flex>
             {links}
         </Flex>
     )
 }
-export default BottomNavBar;
+export default Navbar;

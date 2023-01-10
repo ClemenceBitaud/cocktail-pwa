@@ -1,5 +1,5 @@
 import {createStyles, Flex, Text, Title} from '@mantine/core';
-import RetroButton from "../RetroButton";
+import RetroButton from "../button/RetroButton";
 
 const useStyles = createStyles((theme) => ({
 
@@ -23,7 +23,7 @@ const InformationItem = ({title, text, buttonText, linkTo, color, isBorder, flex
     return(
         <Flex direction="column" align={{ base: 'center', md:desktopAlign}} justify="center" className={classes.section} style={{ border: isBorder ? `2px solid ${color}` : 'none', flex: flex }}>
             <Title size="h1">{title}</Title>
-            <Text align="center" fz="lg">{text}</Text>
+            <Text align={desktopAlign} fz="lg">{text}</Text>
             <RetroButton label={buttonText} linkTo={linkTo}/>
         </Flex>
     )

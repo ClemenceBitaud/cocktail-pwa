@@ -1,10 +1,10 @@
-import Header from "../components/Header";
+import Header from "../components/item/Header";
 import useWindowDimensions from "../utils/windowDimensionHook";
 import {createStyles} from "@mantine/core";
-import BottomNavBar from "../components/BottomNavBar";
+import BottomNavBar from "../components/navigation/BottomNavBar";
 import {useSelector} from "react-redux";
 import {favoriteCocktails} from "../utils/slice";
-import CocktailsList from "../components/CocktailsList";
+import CocktailsList from "../components/list/CocktailsList";
 
 const useStyles = createStyles((theme) => ({
 
