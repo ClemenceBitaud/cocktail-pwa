@@ -1,9 +1,8 @@
 import {createStyles, Flex, Text, Modal} from '@mantine/core';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-// import FavoriteIcon from '@mui/icons-material/Favorite';
 import {useState} from "react";
 import CocktailDetail from "./CocktailDetail";
 import './Modal.css';
+import FavoriteButton from "./button/FavoriteButton";
 
 const useStyles = createStyles((theme) => ({
 
@@ -33,21 +32,6 @@ const useStyles = createStyles((theme) => ({
             height: 77,
         },
     },
-
-    heartIcon : {
-        width: 32,
-        height: 32,
-        border: '2px solid #FFB3BC',
-        backgroundColor: "white",
-        borderRadius: 20,
-        cursor: "pointer",
-
-        // SMARTPHONE
-        [`@media (max-width: 600px)`]: {
-            width: 20,
-            height: 20,
-        },
-    },
 }));
 
 const CocktailCard = ({cocktail}) => {
@@ -56,14 +40,20 @@ const CocktailCard = ({cocktail}) => {
     const [opened, setOpened] = useState(false);
 
     return(
-        <Flex justify="center" className={classes.card} onClick={() =>setOpened(true)}>
+        <Flex
+            justify="center"
+            className={classes.card}
+            onClick={(event) =>{
+                setOpened(true)
+            }}>
             <Flex direction="column" align="center">
                 <img src={cocktail.strDrinkThumb} className={classes.cocktailImage} alt="cocktail"/>
                 <Text align="center" size={"sm"}>{cocktail.strDrink}</Text>
                 <Flex>
-                    <Flex justify="center" align="center" className={classes.heartIcon} onClick={() =>{}}>
-                        <FavoriteBorderIcon sx={{ color: '#FFB3BC' }}/>
-                    </Flex>
+                    {/*<Flex justify="center" align="center" className={classes.heartIcon} onClick={() =>{}}>*/}
+                    {/*    <FavoriteBorderIcon sx={{ color: '#FFB3BC' }}/>*/}
+                    {/*</Flex>*/}
+                    <FavoriteButton cocktail={cocktail}/>
                 </Flex>
             </Flex>
             <Modal

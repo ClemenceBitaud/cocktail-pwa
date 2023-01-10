@@ -5,23 +5,27 @@ import App from './App';
 import { MantineProvider } from '@mantine/core';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from "react-redux";
+import store from './utils/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <MantineProvider
-          theme={{
-              fontFamily: 'Tajawal, sans-serif',
-              fontFamilyMonospace: 'Tajawal, sans-serif',
-              headings: { fontFamily: 'Limelight, cursive' },
-              colors: {
-                  'orange': ['#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E'],
-                  'pink': ['#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC'],
-              },
-          }}
-      >
-          <App />
-      </MantineProvider>
+      <Provider store={store}>
+          <MantineProvider
+              theme={{
+                  fontFamily: 'Tajawal, sans-serif',
+                  fontFamilyMonospace: 'Tajawal, sans-serif',
+                  headings: { fontFamily: 'Limelight, cursive' },
+                  colors: {
+                      'orange': ['#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E', '#FFC76E'],
+                      'pink': ['#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC', '#FFB3BC'],
+                  },
+              }}
+          >
+              <App />
+          </MantineProvider>
+      </Provider>
   </React.StrictMode>
 );
 
