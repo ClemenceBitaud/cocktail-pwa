@@ -20,14 +20,11 @@ const CocktailsList = ({cocktails, error}) => {
         />
     }else{
         return(
-            <div>
-                <ErrorMessage text={"A mistake has been made, let's have an aperitif while we wait!"}/>
-                <Flex wrap="wrap" justify="center">
-                    {cocktails.map(cocktail => (
-                        <CocktailCard cocktail={cocktail} key={cocktail.strDrink}/>
-                    ))}
-                </Flex>
-            </div>
+            <Flex wrap="wrap" justify="center">
+                {cocktails.map(cocktail => (
+                    <CocktailCard cocktail={cocktail} key={cocktail.strDrink}/>
+                ))}
+            </Flex>
         )
     }
 

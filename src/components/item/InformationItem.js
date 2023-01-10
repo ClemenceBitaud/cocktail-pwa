@@ -21,7 +21,7 @@ const InformationItem = ({title, text, buttonText, linkTo, color, isBorder, flex
     const { classes} = useStyles();
 
     return(
-        <Flex direction="column" align="center" align={{ base: 'center', md:desktopAlign}} justify="center" className={classes.section} style={{ border: isBorder ? `2px solid ${color}` : 'none', flex: flex }}>
+        <Flex direction="column" align={{ base: 'center', md:desktopAlign}} justify="center" className={classes.section} style={{ border: isBorder ? `2px solid ${color}` : 'none', flex: flex }}>
             <Title size="h1">{title}</Title>
             <Text align="center" fz="lg">{text}</Text>
             <RetroButton label={buttonText} linkTo={linkTo}/>
