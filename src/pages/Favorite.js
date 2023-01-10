@@ -2,6 +2,9 @@ import Header from "../components/Header";
 import useWindowDimensions from "../utils/windowDimensionHook";
 import {createStyles} from "@mantine/core";
 import BottomNavBar from "../components/BottomNavBar";
+import {useSelector} from "react-redux";
+import {favoriteCocktails} from "../utils/slice";
+import CocktailsList from "../components/CocktailsList";
 
 const useStyles = createStyles((theme) => ({
 
@@ -27,11 +30,13 @@ const Favorite = () => {
 
     const { classes} = useStyles();
     const {width} = useWindowDimensions();
+    const favorites = useSelector(favoriteCocktails);
     const activeLink = "Favorite";
 
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
+            <CocktailsList cocktails={favorites} error={null}/>
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
     )

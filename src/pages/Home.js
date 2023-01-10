@@ -1,5 +1,3 @@
-import HomeSection from "../components/HomeSection";
-import RandomSection from "../components/RandomSection";
 import {createStyles, Flex} from "@mantine/core";
 import TitleSeeMore from "../components/TitleSeeMore";
 import Header from "../components/Header";
@@ -7,6 +5,7 @@ import useWindowDimensions from "../utils/windowDimensionHook";
 import BottomNavBar from "../components/BottomNavBar";
 import CocktailsList from "../components/CocktailsList";
 import {useEffect, useState} from "react";
+import InformationSection from "../components/InformationSection";
 
 const useStyles = createStyles((theme) => ({
 
@@ -58,8 +57,27 @@ const Home = () => {
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
             <Flex direction={{ base: 'column', md:'row'}} className={classes.section}>
-                <HomeSection/>
-                <RandomSection/>
+                {/*<HomeSection/>*/}
+                <InformationSection
+                    title={"Welcome in World of Cocktails"}
+                    text={"No idea for an aperitif or a party? A cocktail in mind but you don't know how to make it? No original drink for your SAM?"}
+                    buttonText={"Find a cocktail"}
+                    linkTo={"/cocktail"}
+                    color={"#FFB3BC"}
+                    isBorder={false}
+                    flex={2}
+                    desktopAlign={"flex-start"}
+                />
+                <InformationSection
+                    title={""}
+                    text={"Want to spice things up? Let us choose for you!"}
+                    buttonText={"Start the random search !"}
+                    linkTo={"/cocktail"}
+                    color={"#B8D1CD"}
+                    isBorder={true}
+                    flex={1}
+                    desktopAlign={"center"}
+                />
             </Flex>
             <TitleSeeMore title={"Cocktails"} linkTo={"/cocktail"}/>
             <CocktailsList cocktails={cocktails} error={error}/>

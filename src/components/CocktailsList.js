@@ -1,42 +1,33 @@
-// import {createStyles, Flex} from "@mantine/core";
 import CocktailCard from "../components/CocktailCard";
-import {useEffect, useState} from "react";
 import {Flex} from "@mantine/core";
-
-// const useStyles = createStyles((theme) => ({
-//
-//     main : {
-//         marginRight: `${2}em`,
-//         marginLeft: `${2}em`,
-//         marginTop: `${0.5}em`,
-//
-//         // Media query with value from theme
-//         [`@media (max-width: 600px)`]: {
-//             marginRight: `${1}em`,
-//             marginLeft: `${1}em`,
-//             marginTop: `${0.5}em`,
-//         },
-//     },
-//
-//     section : {
-//         marginTop: theme.spacing.xl
-//     },
-// }));
+import InformationSection from "./InformationSection";
+import ErrorMessage from "./write/ErrorMessage";
 
 const CocktailsList = ({cocktails, error}) => {
 
-    // const { classes} = useStyles();
-
     if (error){
-        return <div>{error.message}</div>
+        return <ErrorMessage text={"A mistake has been made, let's have an aperitif while we wait!"}/>
+    }else if(cocktails.length === 0){
+        return <InformationSection
+            title={""}
+            text={"You don't have any favourites yet... You have to have an aperitif to remedy that!"}
+            buttonText={"See cocktails !"}
+            linkTo={"/cocktail"}
+            color={"#B8D1CD"}
+            isBorder={true}
+            flex={1}
+            desktopAlign={"center"}
+        />
     }else{
         return(
-            <Flex wrap="wrap" justify="center">
-                {cocktails.map(cocktail => (
-                    <CocktailCard cocktail={cocktail} key={cocktail.strDrink}/>
-                ))}
-            </Flex>
-
+            <div>
+                <ErrorMessage text={"A mistake has been made, let's have an aperitif while we wait!"}/>
+                <Flex wrap="wrap" justify="center">
+                    {cocktails.map(cocktail => (
+                        <CocktailCard cocktail={cocktail} key={cocktail.strDrink}/>
+                    ))}
+                </Flex>
+            </div>
         )
     }
 

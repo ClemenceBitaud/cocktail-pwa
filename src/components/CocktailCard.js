@@ -43,16 +43,13 @@ const CocktailCard = ({cocktail}) => {
         <Flex
             justify="center"
             className={classes.card}
-            onClick={(event) =>{
+            onClick={() =>{
                 setOpened(true)
             }}>
             <Flex direction="column" align="center">
                 <img src={cocktail.strDrinkThumb} className={classes.cocktailImage} alt="cocktail"/>
                 <Text align="center" size={"sm"}>{cocktail.strDrink}</Text>
                 <Flex>
-                    {/*<Flex justify="center" align="center" className={classes.heartIcon} onClick={() =>{}}>*/}
-                    {/*    <FavoriteBorderIcon sx={{ color: '#FFB3BC' }}/>*/}
-                    {/*</Flex>*/}
                     <FavoriteButton cocktail={cocktail}/>
                 </Flex>
             </Flex>
