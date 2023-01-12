@@ -1,4 +1,4 @@
-import {createStyles, Flex} from '@mantine/core';
+import {createStyles, Flex, UnstyledButton} from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
 
@@ -29,14 +29,13 @@ const RetroButton = ({label, handleClick}) => {
 
     return(
         <Flex>
-            <a
+            <UnstyledButton
                 className={classes.link}
-                href="#"
                 onClick={handleClick}
                 key={label}
             >
                 {label}
-            </a>
+            </UnstyledButton>
         </Flex>
     )
 }
