@@ -4,7 +4,7 @@ import Navbar from "../navigation/Navbar";
 import useWindowDimensions from "../../utils/windowDimensionHook";
 import CustomTextInput from "./CustomTextInput";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
 
     logo: {
         height:40,
