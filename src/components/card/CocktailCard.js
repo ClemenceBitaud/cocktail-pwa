@@ -32,6 +32,10 @@ const useStyles = createStyles((theme) => ({
             height: 77,
         },
     },
+
+    text : {
+        wordBreak: "break-word"
+    }
 }));
 
 const CocktailCard = ({cocktail}) => {
@@ -59,10 +63,14 @@ const CocktailCard = ({cocktail}) => {
             onClick={() =>{
                 handleCocktailDetail(cocktail.idDrink)
                 setOpened(true)
-            }}>
-            <Flex direction="column" align="center">
+            }}
+        >
+            <Flex
+                direction="column"
+                align="center"
+            >
                 <img src={cocktail.strDrinkThumb} className={classes.cocktailImage} alt="cocktail"/>
-                <Text align="center" size={"sm"}>{cocktail.strDrink}</Text>
+                <Text align="center" size={"sm"} className={classes.text}>{cocktail.strDrink}</Text>
                 <Flex>
                     <FavoriteButton cocktail={cocktail}/>
                 </Flex>

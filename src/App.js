@@ -7,6 +7,7 @@ import {
 import Home from "./pages/Home";
 import Cocktail from "./pages/Cocktail";
 import Favorite from "./pages/Favorite";
+import Random from "./pages/Random";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/favorite",
     element: <Favorite/>
+  },
+  {
+    path: "/random",
+    element: <Random/>
   }
 ])
 

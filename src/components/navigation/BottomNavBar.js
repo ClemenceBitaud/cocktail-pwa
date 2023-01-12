@@ -4,6 +4,7 @@ import '../item/TextInput.css'
 import HomeIcon from '@mui/icons-material/Home';
 import LocalBarIcon from '@mui/icons-material/LocalBar';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShuffleIcon from '@mui/icons-material/Shuffle';
 
 const useStyles = createStyles((theme) => ({
 
@@ -11,7 +12,11 @@ const useStyles = createStyles((theme) => ({
         backgroundColor: "#FFE9D7",
         borderRadius: theme.radius.xl,
         padding: '5px',
-        marginTop: theme.spacing.xs
+        marginTop: theme.spacing.xs,
+        position:"absolute",
+        left:0,
+        bottom:0,
+        right:0,
     },
 
     link: {
@@ -56,6 +61,11 @@ const linksMockdata = [
         label:'Favorite',
         icon: FavoriteIcon,
         linkTo: '/favorite'
+    },
+    {
+        label: 'Random',
+        icon : ShuffleIcon,
+        linkTo: '/random'
     }
 ];
 

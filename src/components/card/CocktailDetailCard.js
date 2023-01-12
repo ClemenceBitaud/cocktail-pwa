@@ -1,4 +1,5 @@
 import {createStyles, Title, Flex, Text} from '@mantine/core';
+import FavoriteButton from "../button/FavoriteButton";
 
 const useStyles = createStyles((theme) => ({
 
@@ -28,7 +29,10 @@ const CocktailDetailCard = ({cocktail}) => {
         <div>
             <img className={classes.image} src={cocktail.strDrinkThumb} alt="detail cocktail"/>
             <Flex className={classes.content} direction="column">
-                <Title size={"h3"}>{cocktail.strDrink}</Title>
+                <Flex justify="space-between">
+                    <Title size={"h3"}>{cocktail.strDrink}</Title>
+                    <FavoriteButton cocktail={cocktail}/>
+                </Flex>
                 <Text>{cocktail.strInstructions}</Text>
                 <Flex direction="column" className={classes.ingredientContent}>
                     <Title align="center" size={"h5"}>Ingredients</Title>

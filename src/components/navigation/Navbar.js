@@ -45,6 +45,10 @@ const linksMockdata = [
     {
         label:'Favorite',
         linkTo: '/favorite'
+    },
+    {
+        label: 'Random',
+        linkTo: '/random'
     }
 ];
 

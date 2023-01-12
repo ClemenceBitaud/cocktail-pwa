@@ -1,6 +1,6 @@
 import Header from "../components/item/Header";
 import BottomNavBar from "../components/navigation/BottomNavBar";
-import {createStyles} from "@mantine/core";
+import {createStyles, ScrollArea} from "@mantine/core";
 import useWindowDimensions from "../utils/windowDimensionHook";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
 const Cocktail = () => {
 
     const { classes} = useStyles();
-    const {width} = useWindowDimensions();
+    const {width, height} = useWindowDimensions();
     const activeLink = "Cocktail";
     const {search} = useParams();
     const [error, setError] = useState(null);
@@ -62,7 +62,9 @@ const Cocktail = () => {
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
-            <CocktailsList cocktails={cocktails} error={error}/>
+            {width <= 600 ? <ScrollArea style={{ height: height - 80 }}><CocktailsList cocktails={cocktails} error={error}/></ScrollArea>
+                : <CocktailsList cocktails={cocktails} error={error}/>
+            }
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
     )

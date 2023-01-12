@@ -1,4 +1,4 @@
-import {createStyles, Flex} from "@mantine/core";
+import {createStyles, Flex, ScrollArea} from "@mantine/core";
 import TitleSeeMore from "../components/write/TitleSeeMore";
 import Header from "../components/item/Header";
 import useWindowDimensions from "../utils/windowDimensionHook";
@@ -30,7 +30,7 @@ const useStyles = createStyles((theme) => ({
 const Home = () => {
 
     const { classes} = useStyles();
-    const {width} = useWindowDimensions();
+    const {width, height} = useWindowDimensions();
     const activeLink = "Home";
     const [error, setError] = useState(null);
     // const [setIsLoaded] = useState(false);
@@ -72,7 +72,7 @@ const Home = () => {
                     title={""}
                     text={"Want to spice things up? Let us choose for you!"}
                     buttonText={"Start the random search !"}
-                    linkTo={"/cocktail"}
+                    linkTo={"/random"}
                     color={"#B8D1CD"}
                     isBorder={true}
                     flex={1}
@@ -80,7 +80,9 @@ const Home = () => {
                 />
             </Flex>
             <TitleSeeMore title={"Cocktails"} linkTo={"/cocktail"}/>
-            <CocktailsList cocktails={cocktails} error={error}/>
+            {width <= 600 ? <ScrollArea style={{ height: height / 1.5 - 25 }}><CocktailsList cocktails={cocktails} error={error}/></ScrollArea>
+                : <CocktailsList cocktails={cocktails} error={error}/>
+            }
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
 

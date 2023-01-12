@@ -1,4 +1,3 @@
-import {useNavigate} from 'react-router-dom';
 import {createStyles, Flex} from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -25,20 +24,15 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-const RetroButton = ({label, linkTo}) => {
-
-    const navigate = useNavigate();
+const RetroButton = ({label, handleClick}) => {
     const { classes} = useStyles();
 
     return(
         <Flex>
             <a
                 className={classes.link}
-                href="/"
-                onClick={(event) => {
-                    event.preventDefault();
-                    navigate(linkTo)
-                }}
+                href="#"
+                onClick={handleClick}
                 key={label}
             >
                 {label}
