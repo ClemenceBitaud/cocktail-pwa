@@ -63,7 +63,7 @@ const Cocktail = () => {
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
-            {width <= 600 ? <ScrollArea style={{ height: height - 80 }}><CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/></ScrollArea>
+            {width <= 600 ? <ScrollArea style={{ height: height - 90 }}><CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/></ScrollArea>
                 : <CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/>
             }
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}

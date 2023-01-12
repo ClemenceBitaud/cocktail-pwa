@@ -36,7 +36,7 @@ const Favorite = () => {
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
-            {width <= 600 ? <ScrollArea style={{ height: height - 80 }}><CocktailsList cocktails={favorites} error={null} isLoaded={true}/></ScrollArea>
+            {width <= 600 ? <ScrollArea style={{ height: height - 90 }}><CocktailsList cocktails={favorites} error={null} isLoaded={true}/></ScrollArea>
                 : <CocktailsList cocktails={favorites} error={null} isLoaded={true}/>
             }
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}

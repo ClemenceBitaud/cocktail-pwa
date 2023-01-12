@@ -67,7 +67,7 @@ const Random = () => {
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
-            <ScrollArea style={{ height: height - 80 }}>
+            <ScrollArea style={{ height: height - 90 }}>
                 <Flex direction="column" align="center">
                     <Box className={classes.retroButton}>
                         <RetroButton label={"Play again !"} handleClick={handleRandomApi}/>

@@ -23,7 +23,7 @@ const useStyles = createStyles((theme) => ({
     },
 
     section : {
-        marginTop: theme.spacing.xl
+        marginTop: theme.spacing.md
     },
 }));
 
@@ -89,7 +89,7 @@ const Home = () => {
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
 
-            {width <= 600 ? <ScrollArea style={{ height: height - 80}}>
+            {width <= 600 ? <ScrollArea style={{ height: height - 90}}>
                     <InfoSeeMoreAndList cocktails={cocktails} error={error} isLoaded={isLoaded}/>
                 </ScrollArea>
                 : <InfoSeeMoreAndList cocktails={cocktails} error={error} isLoaded={isLoaded}/>

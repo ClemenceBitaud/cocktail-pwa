@@ -1,19 +1,34 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Cocktail World",
+  "name": "Cocktail World",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "cocktail-16.png",
+      "type": "image/png",
+      "sizes": "16x16"
     },
     {
-      "src": "logo192.png",
+      "src": "cocktail-24.png",
+      "type": "image/png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "cocktail-32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "cocktail-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "cocktail-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "cocktail-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
