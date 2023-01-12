@@ -57,10 +57,9 @@ const Home = () => {
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
             <Flex direction={{ base: 'column', md:'row'}} className={classes.section}>
-                {/*<HomeSection/>*/}
                 <InformationSection
                     title={"Welcome in World of Cocktails"}
-                    text={"No idea for an aperitif or a party? A cocktail in mind but you don't know how to make it? No original drink for your SAM?"}
+                    text={"No idea for an aperitif or a party? A cocktail in mind but you don't know how to make it?"}
                     buttonText={"Find a cocktail"}
                     linkTo={"/cocktail"}
                     color={"#FFB3BC"}
