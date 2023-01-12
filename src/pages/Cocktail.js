@@ -33,13 +33,14 @@ const Cocktail = () => {
     const activeLink = "Cocktail";
     const {search} = useParams();
     const [error, setError] = useState(null);
-    // const [setIsLoaded] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const [cocktails, setCocktails] = useState([]);
 
     useEffect(() => {
         if (search === undefined){
             const saved = JSON.parse(localStorage.getItem("alcoholic-cocktails"));
             setCocktails(saved);
+            setIsLoaded(true);
 
         }else{
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`)
@@ -47,12 +48,12 @@ const Cocktail = () => {
                     return res.json();
                 })
                 .then((data) => {
-                    // setIsLoaded(true);
+                    setIsLoaded(true);
                     const drinks = data.drinks;
                     setCocktails(drinks);
 
                 }, (error) => {
-                    // setIsLoaded(true);
+                    setIsLoaded(true);
                     setError(error);
                 });
         }
@@ -62,8 +63,8 @@ const Cocktail = () => {
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
-            {width <= 600 ? <ScrollArea style={{ height: height - 80 }}><CocktailsList cocktails={cocktails} error={error}/></ScrollArea>
-                : <CocktailsList cocktails={cocktails} error={error}/>
+            {width <= 600 ? <ScrollArea style={{ height: height - 80 }}><CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/></ScrollArea>
+                : <CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/>
             }
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>

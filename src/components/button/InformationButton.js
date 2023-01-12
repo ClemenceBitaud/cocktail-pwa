@@ -8,7 +8,8 @@ const useStyles = createStyles((theme) => ({
         // boxShadow: "0px 5px 6px rgba(0, 101, 85, 0.1)",
         borderRadius: theme.radius.lg,
         padding: theme.spacing.xs,
-        marginBottom: theme.spacing.xs
+        marginBottom: theme.spacing.xs,
+        marginTop: theme.spacing.xs
     },
 
 }));

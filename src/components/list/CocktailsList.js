@@ -1,12 +1,16 @@
 import CocktailCard from "../card/CocktailCard";
-import {Flex} from "@mantine/core";
+import {Flex, Loader} from "@mantine/core";
 import InformationSection from "../item/InformationSection";
 import ErrorMessage from "../write/ErrorMessage";
 
-const CocktailsList = ({cocktails, error}) => {
+const CocktailsList = ({cocktails, error, isLoaded}) => {
 
     if (error){
         return <ErrorMessage text={"A mistake has been made, let's have an aperitif while we wait!"}/>
+    }else if(!isLoaded){
+        return <Flex justify="center" >
+            <Loader color="pink" />
+        </Flex>
     }else if(cocktails.length === 0){
         return <InformationSection
             title={""}

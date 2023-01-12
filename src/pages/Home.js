@@ -33,7 +33,7 @@ const Home = () => {
     const {width, height} = useWindowDimensions();
     const activeLink = "Home";
     const [error, setError] = useState(null);
-    // const [setIsLoaded] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const [cocktails, setCocktails] = useState([]);
 
     useEffect(() => {
@@ -42,13 +42,13 @@ const Home = () => {
                 return res.json();
             })
             .then((data) => {
-                // setIsLoaded(true);
+                setIsLoaded(true);
                 const drinks = data.drinks;
                 setCocktails(drinks.slice(0,15));
                 localStorage.setItem("alcoholic-cocktails", JSON.stringify(drinks));
 
             }, (error) => {
-                // setIsLoaded(true);
+                setIsLoaded(true);
                 setError(error);
             });
     }, []);
@@ -80,8 +80,8 @@ const Home = () => {
                 />
             </Flex>
             <TitleSeeMore title={"Cocktails"} linkTo={"/cocktail"}/>
-            {width <= 600 ? <ScrollArea style={{ height: height / 1.5 - 25 }}><CocktailsList cocktails={cocktails} error={error}/></ScrollArea>
-                : <CocktailsList cocktails={cocktails} error={error}/>
+            {width <= 600 ? <ScrollArea style={{ height: height / 1.5 - 25 }}><CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/></ScrollArea>
+                : <CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/>
             }
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
