@@ -1,6 +1,6 @@
 import Header from "../components/item/Header";
 import useWindowDimensions from "../utils/windowDimensionHook";
-import {createStyles} from "@mantine/core";
+import {createStyles, ScrollArea} from "@mantine/core";
 import BottomNavBar from "../components/navigation/BottomNavBar";
 import {useSelector} from "react-redux";
 import {favoriteCocktails} from "../utils/slice";
@@ -29,14 +29,16 @@ const useStyles = createStyles((theme) => ({
 const Favorite = () => {
 
     const { classes} = useStyles();
-    const {width} = useWindowDimensions();
+    const {width, height} = useWindowDimensions();
     const favorites = useSelector(favoriteCocktails);
     const activeLink = "Favorite";
 
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
-            <CocktailsList cocktails={favorites} error={null}/>
+            {width <= 600 ? <ScrollArea style={{ height: height - 80 }}><CocktailsList cocktails={favorites} error={null}/></ScrollArea>
+                : <CocktailsList cocktails={favorites} error={null}/>
+            }
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
     )
