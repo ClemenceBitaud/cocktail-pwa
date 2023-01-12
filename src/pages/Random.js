@@ -1,6 +1,6 @@
 import Header from "../components/item/Header";
 import BottomNavBar from "../components/navigation/BottomNavBar";
-import {createStyles, Flex} from "@mantine/core";
+import {createStyles, Flex, ScrollArea} from "@mantine/core";
 import useWindowDimensions from "../utils/windowDimensionHook";
 import {useState, useEffect} from "react";
 import CocktailDetailCard from "../components/card/CocktailDetailCard";
@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
 const Random = () => {
 
     const { classes} = useStyles();
-    const {width} = useWindowDimensions();
+    const {width, height} = useWindowDimensions();
     const activeLink = "Random";
     const [cocktail, setCocktail] = useState({});
 
@@ -52,6 +52,7 @@ const Random = () => {
     }, []);
 
     const handleRandomApi = () => {
+        setCocktail({});
         fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
             .then((res) => {
                 return res.json();
@@ -66,14 +67,16 @@ const Random = () => {
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
-            <Flex direction="column" align="center">
-                <Box className={classes.retroButton}>
-                    <RetroButton label={"Play again !"} handleClick={handleRandomApi}/>
-                </Box>
-                <Box className={classes.cocktailCard}>
-                    <CocktailDetailCard cocktail={cocktail}/>
-                </Box>
-            </Flex>
+            <ScrollArea style={{ height: height - 80 }}>
+                <Flex direction="column" align="center">
+                    <Box className={classes.retroButton}>
+                        <RetroButton label={"Play again !"} handleClick={handleRandomApi}/>
+                    </Box>
+                    <Box className={classes.cocktailCard}>
+                        <CocktailDetailCard cocktail={cocktail}/>
+                    </Box>
+                </Flex>
+            </ScrollArea>
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
     )

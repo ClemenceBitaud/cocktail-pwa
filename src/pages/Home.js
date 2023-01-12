@@ -1,4 +1,4 @@
-import {createStyles, Flex, ScrollArea} from "@mantine/core";
+import {createStyles, Flex, ScrollArea, Box} from "@mantine/core";
 import TitleSeeMore from "../components/write/TitleSeeMore";
 import Header from "../components/item/Header";
 import useWindowDimensions from "../utils/windowDimensionHook";
@@ -26,6 +26,38 @@ const useStyles = createStyles((theme) => ({
         marginTop: theme.spacing.xl
     },
 }));
+
+const InfoSeeMoreAndList = ({cocktails, error, isLoaded}) => {
+    const {classes} = useStyles();
+    return (
+        <Box>
+            <Flex direction={{ base: 'column', md:'row'}} className={classes.section}>
+                <InformationSection
+                    title={"Welcome in World of Cocktails"}
+                    text={"No idea for an aperitif or a party? A cocktail in mind but you don't know how to make it?"}
+                    buttonText={"Find a cocktail"}
+                    linkTo={"/cocktail"}
+                    color={"#FFB3BC"}
+                    isBorder={false}
+                    flex={2}
+                    desktopAlign={"flex-start"}
+                />
+                <InformationSection
+                    title={""}
+                    text={"Want to spice things up? Let us choose for you!"}
+                    buttonText={"Start the random search !"}
+                    linkTo={"/random"}
+                    color={"#B8D1CD"}
+                    isBorder={true}
+                    flex={1}
+                    desktopAlign={"center"}
+                />
+            </Flex>
+            <TitleSeeMore title={"Cocktails"} linkTo={"/cocktail"}/>
+            <CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/>
+        </Box>
+    )
+}
 
 const Home = () => {
 
@@ -56,31 +88,11 @@ const Home = () => {
     return(
         <div className={classes.main}>
             <Header activeLink={activeLink}/>
-            <Flex direction={{ base: 'column', md:'row'}} className={classes.section}>
-                <InformationSection
-                    title={"Welcome in World of Cocktails"}
-                    text={"No idea for an aperitif or a party? A cocktail in mind but you don't know how to make it?"}
-                    buttonText={"Find a cocktail"}
-                    linkTo={"/cocktail"}
-                    color={"#FFB3BC"}
-                    isBorder={false}
-                    flex={2}
-                    desktopAlign={"flex-start"}
-                />
-                <InformationSection
-                    title={""}
-                    text={"Want to spice things up? Let us choose for you!"}
-                    buttonText={"Start the random search !"}
-                    linkTo={"/random"}
-                    color={"#B8D1CD"}
-                    isBorder={true}
-                    flex={1}
-                    desktopAlign={"center"}
-                />
-            </Flex>
-            <TitleSeeMore title={"Cocktails"} linkTo={"/cocktail"}/>
-            {width <= 600 ? <ScrollArea style={{ height: height / 1.5 - 25 }}><CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/></ScrollArea>
-                : <CocktailsList cocktails={cocktails} error={error} isLoaded={isLoaded}/>
+
+            {width <= 600 ? <ScrollArea style={{ height: height - 80}}>
+                    <InfoSeeMoreAndList cocktails={cocktails} error={error} isLoaded={isLoaded}/>
+                </ScrollArea>
+                : <InfoSeeMoreAndList cocktails={cocktails} error={error} isLoaded={isLoaded}/>
             }
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
         </div>
