@@ -1,11 +1,10 @@
 import Header from "../components/item/Header";
 import BottomNavBar from "../components/navigation/BottomNavBar";
-import {createStyles, Flex, ScrollArea} from "@mantine/core";
+import {createStyles, Flex, ScrollArea, Box} from "@mantine/core";
 import useWindowDimensions from "../utils/windowDimensionHook";
 import {useState, useEffect} from "react";
 import CocktailDetailCard from "../components/card/CocktailDetailCard";
 import RetroButton from "../components/button/RetroButton";
-import {Box} from "@mui/material";
 
 const useStyles = createStyles((theme) => ({
 
@@ -65,7 +64,7 @@ const Random = () => {
     }
 
     return(
-        <div className={classes.main}>
+        <Box className={classes.main}>
             <Header activeLink={activeLink}/>
             <ScrollArea style={{ height: height - 90 }}>
                 <Flex direction="column" align="center">
@@ -78,7 +77,7 @@ const Random = () => {
                 </Flex>
             </ScrollArea>
             {width <= 600 ? <BottomNavBar activeLink={activeLink}/> : null}
-        </div>
+        </Box>
     )
 }
 export default Random;

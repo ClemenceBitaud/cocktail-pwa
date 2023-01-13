@@ -1,4 +1,4 @@
-import {createStyles, Title, Flex, Text} from '@mantine/core';
+import {createStyles, Title, Flex, Text, Box} from '@mantine/core';
 import FavoriteButton from "../button/FavoriteButton";
 
 const useStyles = createStyles((theme) => ({
@@ -18,15 +18,29 @@ const useStyles = createStyles((theme) => ({
         border: '2px solid #FFC76E',
         borderRadius: 20,
         padding: theme.spacing.xs
+    },
+
+    measureText : {
+        marginRight: theme.spacing.xs
     }
 
 }));
+
+const IngredientLine = ({measure, ingredient}) => {
+    const { classes} = useStyles();
+    return (
+        <Flex>
+            <Text className={classes.measureText}>{measure}</Text>
+            <Text>{ingredient}</Text>
+        </Flex>
+    )
+}
 
 const CocktailDetailCard = ({cocktail}) => {
     const { classes} = useStyles();
 
     return(
-        <div>
+        <Box>
             <img className={classes.image} src={cocktail.strDrinkThumb} alt="detail cocktail"/>
             <Flex className={classes.content} direction="column">
                 <Flex justify="space-between">
@@ -36,25 +50,25 @@ const CocktailDetailCard = ({cocktail}) => {
                 <Text>{cocktail.strInstructions}</Text>
                 <Flex direction="column" className={classes.ingredientContent}>
                     <Title align="center" size={"h5"}>Ingredients</Title>
-                    <span>{cocktail.strMeasure1} {cocktail.strIngredient1}</span>
-                    <span>{cocktail.strMeasure2} {cocktail.strIngredient2}</span>
-                    <span>{cocktail.strMeasure3} {cocktail.strIngredient3}</span>
-                    <span>{cocktail.strMeasure4} {cocktail.strIngredient4}</span>
-                    <span>{cocktail.strMeasure5} {cocktail.strIngredient5}</span>
-                    <span>{cocktail.strMeasure6} {cocktail.strIngredient6}</span>
-                    <span>{cocktail.strMeasure7} {cocktail.strIngredient7}</span>
-                    <span>{cocktail.strMeasure8} {cocktail.strIngredient8}</span>
-                    <span>{cocktail.strMeasure9} {cocktail.strIngredient9}</span>
-                    <span>{cocktail.strMeasure10} {cocktail.strIngredien10}</span>
-                    <span>{cocktail.strMeasure11} {cocktail.strIngredient11}</span>
-                    <span>{cocktail.strMeasure12} {cocktail.strIngredient12}</span>
-                    <span>{cocktail.strMeasure13} {cocktail.strIngredient13}</span>
-                    <span>{cocktail.strMeasure14} {cocktail.strIngredient14}</span>
-                    <span>{cocktail.strMeasure15} {cocktail.strIngredient15}</span>
+                    <IngredientLine measure={cocktail.strMeasure1} ingredient={cocktail.strIngredient1}/>
+                    <IngredientLine measure={cocktail.strMeasure2} ingredient={cocktail.strIngredient2}/>
+                    <IngredientLine measure={cocktail.strMeasure3} ingredient={cocktail.strIngredient3}/>
+                    <IngredientLine measure={cocktail.strMeasure4} ingredient={cocktail.strIngredient4}/>
+                    <IngredientLine measure={cocktail.strMeasure5} ingredient={cocktail.strIngredient5}/>
+                    <IngredientLine measure={cocktail.strMeasure6} ingredient={cocktail.strIngredient6}/>
+                    <IngredientLine measure={cocktail.strMeasure7} ingredient={cocktail.strIngredient7}/>
+                    <IngredientLine measure={cocktail.strMeasure8} ingredient={cocktail.strIngredient8}/>
+                    <IngredientLine measure={cocktail.strMeasure9} ingredient={cocktail.strIngredient9}/>
+                    <IngredientLine measure={cocktail.strMeasure10} ingredient={cocktail.strIngredient10}/>
+                    <IngredientLine measure={cocktail.strMeasure11} ingredient={cocktail.strIngredient11}/>
+                    <IngredientLine measure={cocktail.strMeasure12} ingredient={cocktail.strIngredient12}/>
+                    <IngredientLine measure={cocktail.strMeasure13} ingredient={cocktail.strIngredient13}/>
+                    <IngredientLine measure={cocktail.strMeasure14} ingredient={cocktail.strIngredient14}/>
+                    <IngredientLine measure={cocktail.strMeasure15} ingredient={cocktail.strIngredient15}/>
                 </Flex>
             </Flex>
 
-        </div>
+        </Box>
     )
 
 }
